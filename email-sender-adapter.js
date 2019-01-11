@@ -1,15 +1,32 @@
 const nodemailer = require('nodemailer');
 
-const smtpTransport = nodemailer.createTransport({
-  host: 'smtp.gmail.com',
-  port: 465,
-  secure: true,
-  requireTLS: true,
-  auth: {
-    user: config.email,
-    pass: config.password
-  }
-});
+const {
+  Adapter,
+  Constants,
+  Database,
+  Device,
+  Property,
+} = require('gateway-addon');
+
+const config = {
+  email: null,
+  password: null,
+  host: null,
+  port: null,
+};
+
+function createTransport() {
+  return nodemailer.createTransport({
+    host: 'smtp.gmail.com',
+    port: 465,
+    secure: true,
+    requireTLS: true,
+    auth: {
+      user: config.email,
+      pass: config.password
+    }
+  });
+}
 
 function getMailOptions() {
   return {
@@ -27,7 +44,7 @@ function sendEmail(to, subject, body) {
       to: to,
       subject: subject,
       text: body,
-    }, function(error, response) {
+    }), function(error, response) {
       if (error) {
         reject(error);
       } else {
@@ -143,12 +160,22 @@ class EmailSenderAdapter extends Adapter {
     super(adapterManager, 'email-sender', manifestName);
 
     adapterManager.addAdapter(this);
-
     this.addAllThings();
   }
 
   startPairing() {
     this.addAllThings();
+
+    this.loadConfig().catch(function(err) {
+      console.warn('Error updating config', err);
+    });
+  }
+
+  async loadConfig() {
+    const db = new Database(this.packageName);
+    await db.open();
+    const dbConfig = await db.loadConfig();
+    Object.assign(config, dbConfig);
   }
 
   addAllThings() {

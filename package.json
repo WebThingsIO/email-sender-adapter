@@ -1,14 +1,69 @@
 {
-  "name": "simple-email-adapter",
+  "name": "email-sender-adapter",
   "version": "0.0.1",
   "description": "",
-  "main": "simple-email-adapter.js",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "jhobin@mozilla.com",
+  "author": "hobinjk@gmail.com",
   "license": "MPL-2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hobinjk/email-sender-adapter.git"
+  },
+  "bugs": {
+    "url": "https://github.com/hobinjk/email-sender-adapter/issues"
+  },
+  "files": [
+    "LICENSE",
+    "SHA256SUMS",
+    "index.js",
+    "node_modules",
+    "email-sender-adapter.js"
+  ],
+  "moziot": {
+    "api": {
+      "min": 2,
+      "max": 2
+    },
+    "enabled": true,
+    "plugin": true,
+    "exec": "{nodeLoader} {path}",
+    "config": {
+      "email": "",
+      "password": "",
+      "host": "smtp.gmail.com",
+      "port": 465
+    },
+    "schema": {
+      "type": "object",
+      "required": [
+        "email",
+        "password",
+        "host",
+        "port"
+      ],
+      "properties": {
+        "email": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        },
+        "host": {
+          "type": "string"
+        },
+        "port": {
+          "type": "integer"
+        }
+      }
+    }
+  },
   "dependencies": {
     "nodemailer": "^4.7.0"
+  },
+  "devDependencies": {
+    "eslint": "^5.12.0"
   }
 }
