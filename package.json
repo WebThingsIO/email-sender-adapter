@@ -1,0 +1,14 @@
+{
+  "name": "simple-email-adapter",
+  "version": "0.0.1",
+  "description": "",
+  "main": "simple-email-adapter.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "jhobin@mozilla.com",
+  "license": "MPL-2.0",
+  "dependencies": {
+    "nodemailer": "^4.7.0"
+  }
+}
