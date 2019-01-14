@@ -2,10 +2,8 @@ const nodemailer = require('nodemailer');
 
 const {
   Adapter,
-  Constants,
   Database,
   Device,
-  Property,
 } = require('gateway-addon');
 
 const config = {
@@ -23,8 +21,8 @@ function createTransport() {
     requireTLS: true,
     auth: {
       user: config.email,
-      pass: config.password
-    }
+      pass: config.password,
+    },
   });
 }
 
@@ -38,7 +36,7 @@ function getMailOptions() {
 }
 
 function sendEmail(to, subject, body) {
-  let transport = createTransport();
+  const transport = createTransport();
   return new Promise(function(resolve, reject) {
     transport.sendMail(Object.assign(getMailOptions(), {
       to: to,
