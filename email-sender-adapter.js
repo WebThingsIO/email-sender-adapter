@@ -60,6 +60,14 @@ const emailSenderThing = {
   properties: [],
   actions: [
     {
+      name: 'sendNotification',
+      metadata: {
+        label: 'Send Notification',
+        description: 'Send a notification to yourself',
+        input: {},
+      },
+    },
+    {
       name: 'sendSimple',
       metadata: {
         label: 'Send Simple Email',
@@ -140,9 +148,12 @@ class EmailSenderDevice extends Device {
     action.start();
 
     if (action.name === 'send') {
-      await sendEmail(action.input.to, action.input.subject || '', action.input.body || '');
+      await sendEmail(action.input.to,
+                      action.input.subject || '', action.input.body || '');
     } else if (action.name === 'sendSimple') {
-      await sendEmail(config.email, action.input.subject || 'Notification', '');
+      await sendEmail(config.email, action.input.subject, '');
+    } else if (action.name === 'sendNotification') {
+      await sendEmail(config.email, 'Notification from Things Gateway', '');
     }
 
     action.finish();
