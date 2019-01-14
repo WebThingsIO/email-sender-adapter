@@ -174,10 +174,6 @@ class EmailSenderAdapter extends Adapter {
 
   startPairing() {
     this.addAllThings();
-
-    this.loadConfig().catch(function(err) {
-      console.warn('Error updating config', err);
-    });
   }
 
   async loadConfig() {
@@ -188,6 +184,10 @@ class EmailSenderAdapter extends Adapter {
   }
 
   addAllThings() {
+    this.loadConfig().catch(function(err) {
+      console.warn('Error updating config', err);
+    });
+
     if (!this.devices['email-sender-0']) {
       new EmailSenderDevice(this, 'email-sender-0', emailSenderThing);
     }
