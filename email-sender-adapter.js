@@ -9,14 +9,14 @@ const {
 const config = {
   email: null,
   password: null,
-  host: null,
-  port: null,
+  host: 'smtp.gmail.com',
+  port: 465,
 };
 
 function createTransport() {
   return nodemailer.createTransport({
-    host: 'smtp.gmail.com',
-    port: 465,
+    host: config.host,
+    port: config.port,
     secure: true,
     requireTLS: true,
     auth: {

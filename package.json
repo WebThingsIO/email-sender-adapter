@@ -1,7 +1,7 @@
 {
   "name": "email-sender-adapter",
   "display_name": "Email Sender",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Simple email sending actions. Needs to be configured with email and app password.",
   "main": "index.js",
   "scripts": {
