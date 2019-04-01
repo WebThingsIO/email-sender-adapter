@@ -153,7 +153,7 @@ class EmailSenderDevice extends Device {
     } else if (action.name === 'sendSimple') {
       await sendEmail(config.email, action.input.subject, '');
     } else if (action.name === 'sendNotification') {
-      await sendEmail(config.email, 'Notification from Things Gateway', '');
+      await sendEmail(config.email, 'Notification from WebThings Gateway', '');
     }
 
     action.finish();
