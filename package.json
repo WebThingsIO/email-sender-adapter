@@ -1,11 +1,11 @@
 {
   "name": "email-sender-adapter",
   "display_name": "Email Sender",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "description": "Simple email sending actions. Needs to be configured with email and app password.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint": "eslint ."
   },
   "homepage": "https://github.com/mozilla-iot/email-sender-adapter",
   "author": "Mozilla IoT",
@@ -22,7 +22,8 @@
     "SHA256SUMS",
     "index.js",
     "node_modules",
-    "email-sender-adapter.js"
+    "email-sender-adapter.js",
+    "email-sender-notifier.js"
   ],
   "moziot": {
     "api": {
@@ -62,9 +63,10 @@
     }
   },
   "dependencies": {
-    "nodemailer": "^4.7.0"
+    "nodemailer": "^6.1.1"
   },
   "devDependencies": {
-    "eslint": "^5.12.0"
+    "babel-eslint": "^10.0.1",
+    "eslint": "^5.16.0"
   }
 }
