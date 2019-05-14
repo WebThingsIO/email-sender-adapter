@@ -2,7 +2,6 @@ const nodemailer = require('nodemailer');
 
 const {
   Adapter,
-  Database,
   Device,
 } = require('gateway-addon');
 
@@ -165,29 +164,16 @@ class EmailSenderDevice extends Device {
  * Instantiates one email sender device
  */
 class EmailSenderAdapter extends Adapter {
-  constructor(adapterManager, manifestName) {
-    super(adapterManager, 'email-sender', manifestName);
+  constructor(addonManager, manifest) {
+    super(addonManager, 'email-sender', manifest.name);
 
-    adapterManager.addAdapter(this);
-    this.addAllThings();
+    addonManager.addAdapter(this);
+
+    Object.assign(config, manifest.moziot.config);
+    this.startPairing();
   }
 
   startPairing() {
-    this.addAllThings();
-  }
-
-  async loadConfig() {
-    const db = new Database(this.packageName);
-    await db.open();
-    const dbConfig = await db.loadConfig();
-    Object.assign(config, dbConfig);
-  }
-
-  addAllThings() {
-    this.loadConfig().catch(function(err) {
-      console.warn('Error updating config', err);
-    });
-
     if (!this.devices['email-sender-0']) {
       new EmailSenderDevice(this, 'email-sender-0', emailSenderThing);
     }
@@ -195,4 +181,3 @@ class EmailSenderAdapter extends Adapter {
 }
 
 module.exports = EmailSenderAdapter;
-
