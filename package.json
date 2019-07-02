@@ -30,6 +30,7 @@
       "min": 2,
       "max": 2
     },
+    "type": "notifier",
     "plugin": true,
     "exec": "{nodeLoader} {path}",
     "config": {
