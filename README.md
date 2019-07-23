@@ -41,8 +41,8 @@ Finally, navigate to the main Things page and click the plus button to add the
 email sender thing.
 ![Image of the Email Thing's detail page](doc/email_detail.png)
 
-We can even drop the Email thing into rules to send basic notification emails
-to ourselves. Look for an upcoming update to the rules engine which will allow
-us to create even cooler behaviors in the future.
+We can even drop the Email Sender notification block into rules to send basic
+notification emails to ourselves.
 
-![Image of a basic email-sending rule where a leak sensor is connected to email notification](doc/email_rule.png)
+![Image of a basic email-sending rule where a leak sensor is connected to email notification](doc/rule_overview.png)
+![Configuration of the email-sending rule](doc/rule_config.png)
