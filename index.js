@@ -10,12 +10,12 @@
 
 const EmailSenderAdapter = require('./email-sender-adapter');
 
-module.exports = (addonManager, manifest) => {
-  new EmailSenderAdapter(addonManager, manifest);
+module.exports = (addonManager) => {
+  new EmailSenderAdapter(addonManager);
 
   try {
     const EmailSenderNotifier = require('./email-sender-notifier');
-    new EmailSenderNotifier(addonManager, manifest);
+    new EmailSenderNotifier(addonManager);
   } catch (e) {
     if (!(e instanceof TypeError)) {
       console.error(e);

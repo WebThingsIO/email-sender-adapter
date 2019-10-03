@@ -1,7 +1,9 @@
+const manifest = require('./manifest.json');
 const nodemailer = require('nodemailer');
 
 const {
   Constants,
+  Database,
   Notifier,
   Outlet,
 } = require('gateway-addon');
@@ -90,16 +92,21 @@ class EmailSenderOutlet extends Outlet {
  * Instantiates one email sender outlet
  */
 class EmailSenderNotifier extends Notifier {
-  constructor(addonManager, manifest) {
-    super(addonManager, 'email-sender', manifest.name);
+  constructor(addonManager) {
+    super(addonManager, 'email-sender', manifest.id);
 
     addonManager.addNotifier(this);
 
-    Object.assign(config, manifest.moziot.config);
+    const db = new Database(manifest.id);
+    db.open().then(() => {
+      return db.loadConfig();
+    }).then((cfg) => {
+      Object.assign(config, cfg);
 
-    if (!this.outlets['email-sender-0']) {
-      this.handleOutletAdded(new EmailSenderOutlet(this, 'email-sender-0'));
-    }
+      if (!this.outlets['email-sender-0']) {
+        this.handleOutletAdded(new EmailSenderOutlet(this, 'email-sender-0'));
+      }
+    }).catch(console.error);
   }
 }
 
