@@ -1,7 +1,7 @@
 {
   "name": "email-sender-adapter",
   "display_name": "Email Sender",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Simple email sending actions. Needs to be configured with email and app password.",
   "main": "index.js",
   "scripts": {
@@ -19,8 +19,10 @@
   },
   "files": [
     "LICENSE",
+    "README.md",
     "SHA256SUMS",
     "index.js",
+    "manifest.json",
     "node_modules",
     "email-sender-adapter.js",
     "email-sender-notifier.js"
@@ -68,6 +70,6 @@
   },
   "devDependencies": {
     "babel-eslint": "^10.0.3",
-    "eslint": "^6.2.2"
+    "eslint": "^6.5.1"
   }
 }

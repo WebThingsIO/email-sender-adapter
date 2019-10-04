@@ -1,0 +1,50 @@
+{
+  "author": "Mozilla IoT",
+  "description": "Simple email sending actions. Needs to be configured with email and app password.",
+  "gateway_specific_settings": {
+    "webthings": {
+      "exec": "{nodeLoader} {path}",
+      "primary_type": "notifier",
+      "strict_max_version": "*",
+      "strict_min_version": "0.10.0"
+    }
+  },
+  "homepage_url": "https://github.com/mozilla-iot/email-sender-adapter",
+  "id": "email-sender-adapter",
+  "license": "MPL-2.0",
+  "manifest_version": 1,
+  "name": "Email Sender",
+  "options": {
+    "default": {
+      "email": "",
+      "password": "",
+      "host": "smtp.gmail.com",
+      "port": 465
+    },
+    "schema": {
+      "type": "object",
+      "required": [
+        "email",
+        "password",
+        "host",
+        "port"
+      ],
+      "properties": {
+        "email": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        },
+        "host": {
+          "type": "string"
+        },
+        "port": {
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "short_name": "Email Sender",
+  "version": "0.2.0"
+}
