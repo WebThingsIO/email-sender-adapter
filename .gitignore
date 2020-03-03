@@ -1,5 +1,5 @@
-node_modules/
-.DS_Store
+*.sha256sum
 *.tgz
+.DS_Store
 SHA256SUMS
-
+node_modules/
