@@ -3,7 +3,6 @@ const nodemailer = require('nodemailer');
 
 const {
   Constants,
-  Database,
   Notifier,
   Outlet,
 } = require('gateway-addon');
@@ -92,21 +91,16 @@ class EmailSenderOutlet extends Outlet {
  * Instantiates one email sender outlet
  */
 class EmailSenderNotifier extends Notifier {
-  constructor(addonManager) {
+  constructor(addonManager, cfg) {
     super(addonManager, 'email-sender', manifest.id);
 
     addonManager.addNotifier(this);
 
-    const db = new Database(manifest.id);
-    db.open().then(() => {
-      return db.loadConfig();
-    }).then((cfg) => {
-      Object.assign(config, cfg);
+    Object.assign(config, cfg);
 
-      if (!this.outlets['email-sender-0']) {
-        this.handleOutletAdded(new EmailSenderOutlet(this, 'email-sender-0'));
-      }
-    }).catch(console.error);
+    if (!this.outlets['email-sender-0']) {
+      this.handleOutletAdded(new EmailSenderOutlet(this, 'email-sender-0'));
+    }
   }
 }
 

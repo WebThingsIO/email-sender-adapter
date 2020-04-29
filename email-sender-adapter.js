@@ -3,7 +3,6 @@ const nodemailer = require('nodemailer');
 
 const {
   Adapter,
-  Database,
   Device,
 } = require('gateway-addon');
 
@@ -63,7 +62,7 @@ const emailSenderThing = {
     {
       name: 'sendNotification',
       metadata: {
-        label: 'Send Notification',
+        title: 'Send Notification',
         description: 'Send a notification to yourself',
         input: {},
       },
@@ -71,7 +70,7 @@ const emailSenderThing = {
     {
       name: 'sendSimple',
       metadata: {
-        label: 'Send Simple Email',
+        title: 'Send Simple Email',
         description: 'Send email to yourself with only a subject',
         input: {
           type: 'object',
@@ -86,7 +85,7 @@ const emailSenderThing = {
     {
       name: 'send',
       metadata: {
-        label: 'Send Email',
+        title: 'Send Email',
         description: 'Send email specifying all details',
         input: {
           type: 'object',
@@ -166,18 +165,12 @@ class EmailSenderDevice extends Device {
  * Instantiates one email sender device
  */
 class EmailSenderAdapter extends Adapter {
-  constructor(addonManager) {
+  constructor(addonManager, cfg) {
     super(addonManager, 'email-sender', manifest.id);
 
     addonManager.addAdapter(this);
-
-    const db = new Database(manifest.id);
-    db.open().then(() => {
-      return db.loadConfig();
-    }).then((cfg) => {
-      Object.assign(config, cfg);
-      this.startPairing();
-    }).catch(console.error);
+    Object.assign(config, cfg);
+    this.startPairing();
   }
 
   startPairing() {
