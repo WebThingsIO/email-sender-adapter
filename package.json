@@ -76,10 +76,10 @@
     }
   },
   "dependencies": {
-    "nodemailer": "^6.4.6"
+    "nodemailer": "^6.4.10"
   },
   "devDependencies": {
     "babel-eslint": "^10.1.0",
-    "eslint": "^6.8.0"
+    "eslint": "^7.4.0"
   }
 }
