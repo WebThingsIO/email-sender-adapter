@@ -1,7 +1,6 @@
 {
   "name": "email-sender-adapter",
-  "display_name": "Email Sender",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Simple email sending actions. Needs to be configured with email and app password.",
   "main": "index.js",
   "scripts": {
@@ -27,59 +26,11 @@
     "email-sender-adapter.js",
     "email-sender-notifier.js"
   ],
-  "moziot": {
-    "api": {
-      "min": 2,
-      "max": 2
-    },
-    "type": "notifier",
-    "plugin": true,
-    "exec": "{nodeLoader} {path}",
-    "config": {
-      "email": "",
-      "password": "",
-      "host": "smtp.gmail.com",
-      "port": 465,
-      "disableDevice": false
-    },
-    "schema": {
-      "type": "object",
-      "required": [
-        "email",
-        "password",
-        "host",
-        "port"
-      ],
-      "properties": {
-        "email": {
-          "title": "Email address",
-          "type": "string"
-        },
-        "password": {
-          "title": "Password",
-          "type": "string"
-        },
-        "host": {
-          "title": "SMTP host",
-          "type": "string"
-        },
-        "port": {
-          "title": "SMTP port",
-          "type": "integer"
-        },
-        "disableDevice": {
-          "title": "Disable device",
-          "description": "Whether or not to disable the \"Email Sender\" device.",
-          "type": "boolean"
-        }
-      }
-    }
-  },
   "dependencies": {
     "nodemailer": "^6.4.10"
   },
   "devDependencies": {
     "babel-eslint": "^10.1.0",
-    "eslint": "^7.4.0"
+    "eslint": "^7.5.0"
   }
 }
