@@ -12,14 +12,16 @@ const config = {
   password: null,
   host: 'smtp.gmail.com',
   port: 465,
+  secure: true,
+  requireTLS: true,
 };
 
 function createTransport() {
   return nodemailer.createTransport({
     host: config.host,
     port: config.port,
-    secure: true,
-    requireTLS: true,
+    secure: config.secure,
+    requireTLS: config.requireTLS,
     auth: {
       user: config.email,
       pass: config.password,
