@@ -1,5 +1,5 @@
 {
-  "author": "Mozilla IoT",
+  "author": "WebThingsIO",
   "description": "Simple email sending actions. Needs to be configured with email and app password.",
   "gateway_specific_settings": {
     "webthings": {
@@ -9,7 +9,7 @@
       "strict_min_version": "0.10.0"
     }
   },
-  "homepage_url": "https://github.com/mozilla-iot/email-sender-adapter",
+  "homepage_url": "https://github.com/WebThingsIO/email-sender-adapter",
   "id": "email-sender-adapter",
   "license": "MPL-2.0",
   "manifest_version": 1,
@@ -70,5 +70,5 @@
     }
   },
   "short_name": "Email Sender",
-  "version": "0.4.0"
+  "version": "0.4.1"
 }

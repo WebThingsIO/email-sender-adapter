@@ -1,7 +1,6 @@
 # email-sender-adapter
 
-A simple adapter exposing actions to send emails through the Mozilla WebThings
-Gateway.
+A simple adapter exposing actions to send emails through the WebThings Gateway.
 
 ## Setup
 

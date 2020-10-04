@@ -1,20 +1,20 @@
 {
   "name": "email-sender-adapter",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "description": "Simple email sending actions. Needs to be configured with email and app password.",
   "main": "index.js",
   "scripts": {
     "lint": "eslint ."
   },
-  "homepage": "https://github.com/mozilla-iot/email-sender-adapter",
-  "author": "Mozilla IoT",
+  "homepage": "https://github.com/WebThingsIO/email-sender-adapter",
+  "author": "WebThingsIO",
   "license": "MPL-2.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/mozilla-iot/email-sender-adapter.git"
+    "url": "https://github.com/WebThingsIO/email-sender-adapter.git"
   },
   "bugs": {
-    "url": "https://github.com/mozilla-iot/email-sender-adapter/issues"
+    "url": "https://github.com/WebThingsIO/email-sender-adapter/issues"
   },
   "files": [
     "LICENSE",
@@ -27,10 +27,10 @@
     "email-sender-notifier.js"
   ],
   "dependencies": {
-    "nodemailer": "^6.4.10"
+    "nodemailer": "^6.4.13"
   },
   "devDependencies": {
     "babel-eslint": "^10.1.0",
-    "eslint": "^7.5.0"
+    "eslint": "^7.10.0"
   }
 }
