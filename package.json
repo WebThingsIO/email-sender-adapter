@@ -27,7 +27,7 @@
     "email-sender-notifier.js"
   ],
   "dependencies": {
-    "nodemailer": "^6.4.13"
+    "nodemailer": "^6.4.16"
   },
   "devDependencies": {
     "babel-eslint": "^10.1.0",
